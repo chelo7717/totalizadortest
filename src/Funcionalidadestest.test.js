@@ -1,5 +1,5 @@
-import DescuentoCalcular from "./Funcionalidades.js";
-import ImpFORstate from "./Funcionalidades.js";
+import DescuentoCalcular from "./Descuento";
+import ImpFORstate from "./ImpuestosEst";
 describe("Impuesto por Estado",()=>{
     it("Impuesto UT",()=>{
         expect(ImpFORstate(20,"UT")).toEqual(1.33);
@@ -14,7 +14,7 @@ describe("Impuesto por Estado",()=>{
         expect(ImpFORstate(20,"AL")).toEqual(0.8);
     });
     it("Impuesto CA",()=>{
-        expect(ImpFORstate(20,"CA")).toEqual(1.65);
+        expect(ImpFORstate(50,"CA")).toEqual(4.125);
     });
 });
 describe("Descuento",()=>{
@@ -25,12 +25,12 @@ describe("Descuento",()=>{
         expect(DescuentoCalcular(10001)).toEqual(1000.1);
     });
     it("Descuento mayor a  7000",()=>{
-        expect(DescuentoCalcular(7001)).toEqual(490.07);
+        expect(DescuentoCalcular(7001)).toEqual(490.07000000000005);
     });
     it("Descuento mayor a  3000",()=>{
         expect(DescuentoCalcular(3001)).toEqual(150.05);
     });
     it("Descuento mayor a  1000",()=>{
-        expect(DescuentoCalcular(1001)).toEqual(30.03);
+        expect(DescuentoCalcular(1001)).toEqual(30.029999999999998);
     });
 });
